@@ -50,3 +50,15 @@ databaseChangeLog:
           relativeToChangelogFile: true
           splitStatements: true
           stripComments: true
+  - changeSet:
+      id: 5
+      author: Luca Schidu
+      changes:
+      - sqlFile:
+          dbms: postgresql
+          encoding: utf8
+          endDelimiter: ;
+          path: ../sql/alter_user_table_uuid.sql
+          relativeToChangelogFile: true
+          splitStatements: true
+          stripComments: true

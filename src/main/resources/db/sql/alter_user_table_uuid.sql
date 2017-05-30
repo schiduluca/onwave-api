@@ -1,0 +1,1 @@
+alter table users ALTER  COLUMN uuid TYPE TEXT;
