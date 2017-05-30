@@ -15,7 +15,6 @@ public class UserConverter extends Converter<UserEntity, UserView> {
         userView.setFirstName(userEntity.getFirstName());
         userView.setLastName(userEntity.getLastName());
         userView.setUuid(userEntity.getUuid());
-        userView.setFullName(userEntity.getFullName());
         userView.setEmail(userEntity.getEmail());
         userView.setPhotoUrl(userEntity.getPhotoUrl());
         return userView;
@@ -26,7 +25,6 @@ public class UserConverter extends Converter<UserEntity, UserView> {
         UserEntity userEntity = new UserEntity();
         userEntity.setFirstName(userView.getFirstName());
         userEntity.setEmail(userView.getEmail());
-        userEntity.setFullName(userView.getFullName());
         userEntity.setUuid(userView.getUuid());
         userEntity.setLastName(userView.getLastName());
         userEntity.setUuid(userView.getUuid());

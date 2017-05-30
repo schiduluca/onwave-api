@@ -67,8 +67,8 @@ public class SongServiceImpl implements SongServiceApi {
     }
 
     @Override
-    public List<SongView> getSongListByUserId(Long id) {
-        UserEntity userEntity = userRepository.findOneById(id);
+    public List<SongView> getSongListByUserId(String  uuid) {
+        UserEntity userEntity = userRepository.findOneByUuid(uuid);
         return userEntity.getSongs().stream().map(songConverter::convert).collect(Collectors.toList());
     }
 

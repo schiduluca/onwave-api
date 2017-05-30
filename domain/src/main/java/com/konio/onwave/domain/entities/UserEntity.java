@@ -26,9 +26,6 @@ public class UserEntity {
     @Column(name = "lastname")
     private String lastName;
 
-    @Column(name = "fullname")
-    private String fullName;
-
     @Column(name = "photourl")
     private String photoUrl;
 
@@ -52,14 +49,6 @@ public class UserEntity {
 
     public List<SongEntity> getSongs() {
         return songs;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
     }
 
     public void setSongs(List<SongEntity> songs) {

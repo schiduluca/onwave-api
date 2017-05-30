@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<UserView> postUser(@RequestBody UserView userView) {
+        public ResponseEntity<UserView> postUser(@RequestBody UserView userView) {
         return ResponseEntity.ok(userServiceApi.registerUser(userView));
     }
 

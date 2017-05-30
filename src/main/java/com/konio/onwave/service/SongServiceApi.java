@@ -20,7 +20,7 @@ public interface SongServiceApi {
 
     void addSong(SongView songView, @UserExists(error = ErrorMessage.USER_DOESNT_EXIST) String uuid);
 
-    List<SongView> getSongListByUserId(@UserExists(error = ErrorMessage.USER_DOESNT_EXIST) Long id);
+    List<SongView> getSongListByUserId(@UserExists(error = ErrorMessage.USER_DOESNT_EXIST) String uuid);
 
 
 }

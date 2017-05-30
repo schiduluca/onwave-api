@@ -30,9 +30,9 @@ public class SongController {
         return songServiceApi.findSongById(id);
     }
 
-    @RequestMapping(value = "/list/{userId}", method = RequestMethod.GET)
-    public List<SongView> getSongListByUserId(@PathVariable Long id) {
-        return songServiceApi.getSongListByUserId(id);
+    @RequestMapping(value = "/list/{userUuid}", method = RequestMethod.GET)
+    public List<SongView> getSongListByUserId(@PathVariable String uuid) {
+        return songServiceApi.getSongListByUserId(uuid);
     }
     
 }
