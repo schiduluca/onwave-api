@@ -13,6 +13,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'org.liquibase.gradle'
 
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
@@ -21,6 +22,17 @@ repositories {
 	mavenCentral()
 }
 
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'org.liquibase:liquibase-gradle-plugin:1.2.4'
+		classpath 'org.postgresql:postgresql:9.4.1207.jre7'
+		classpath 'org.yaml:snakeyaml:1.18'
+
+	}
+}
 
 dependencies {
 	compile project(':domain')
@@ -36,3 +48,21 @@ dependencies {
 	runtime('org.postgresql:postgresql')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
+def changeLog = "$projectDir/src/main/resources/db/changelog/db.changelog-master.yaml"
+task('dev') << {
+	println "executing dev"
+	liquibase {
+		activities {
+			main {
+				changeLogFile changeLog
+				url 'jdbc:postgresql://localhost/postgres'
+				username 'postgres'
+				password '123123'
+			}
+		}
+	}
+}
+
+
+

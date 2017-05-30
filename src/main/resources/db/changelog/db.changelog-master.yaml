@@ -2,3 +2,51 @@ databaseChangeLog:
   - preConditions:
     - runningAs:
         username: postgres
+  - changeSet:
+      id: 1
+      author: Luca Schidu
+      changes:
+      - sqlFile:
+          dbms: postgresql
+          encoding: utf8
+          endDelimiter: \nGO
+          path: ../sql/create_song_table.sql
+          relativeToChangelogFile: true
+          splitStatements: true
+          stripComments: true
+  - changeSet:
+      id: 2
+      author: Luca Schidu
+      changes:
+      - sqlFile:
+          dbms: postgresql
+          encoding: utf8
+          endDelimiter: \nGO
+          path: ../sql/create_user_table.sql
+          relativeToChangelogFile: true
+          splitStatements: true
+          stripComments: true
+  - changeSet:
+      id: 3
+      author: Luca Schidu
+      changes:
+      - sqlFile:
+          dbms: postgresql
+          encoding: utf8
+          endDelimiter: \nGO
+          path: ../sql/add_foreign_key.sql
+          relativeToChangelogFile: true
+          splitStatements: true
+          stripComments: true
+  - changeSet:
+      id: 4
+      author: Luca Schidu
+      changes:
+      - sqlFile:
+          dbms: postgresql
+          encoding: utf8
+          endDelimiter: ;
+          path: ../sql/user_follower_table.sql
+          relativeToChangelogFile: true
+          splitStatements: true
+          stripComments: true
