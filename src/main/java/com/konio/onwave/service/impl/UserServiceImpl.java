@@ -77,4 +77,9 @@ public class UserServiceImpl implements UserServiceApi {
     public UserView findUserByUuid(String uuid) {
         return userConverter.convert(userRepository.findOneByUuid(uuid));
     }
+
+    @Override
+    public List<UserView> findAllUsers() {
+        return userRepository.findAll().stream().map(userConverter::convert).collect(Collectors.toList());
+    }
 }

@@ -32,4 +32,6 @@ public interface UserServiceApi {
                                 @UserExists(error = ErrorMessage.USER_DOESNT_EXIST) String uuid);
 
     UserView findUserByUuid(@UserExists(error = ErrorMessage.USER_DOESNT_EXIST) String uuid);
+
+    List<UserView> findAllUsers();
 }

@@ -23,4 +23,5 @@ public interface SongServiceApi {
     List<SongView> getSongListByUserId(@UserExists(error = ErrorMessage.USER_DOESNT_EXIST) String uuid);
 
 
+    void deleteSong(Long id);
 }

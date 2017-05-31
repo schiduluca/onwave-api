@@ -72,4 +72,9 @@ public class SongServiceImpl implements SongServiceApi {
         return userEntity.getSongs().stream().map(songConverter::convert).collect(Collectors.toList());
     }
 
+    @Override
+    public void deleteSong(Long id) {
+        songRepository.removeById(id);
+    }
+
 }

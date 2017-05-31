@@ -68,7 +68,6 @@ public class UserServiceTest {
 
     private void prepareUser() {
         userEntity = new UserEntity();
-        userEntity.setFullName(fullName);
         userEntity.setEmail(email);
         userEntity.setUuid(randomUUID);
 

@@ -44,6 +44,11 @@ public class UserController {
         return userServiceApi.findFollowersByUserUuid(uuid, Boolean.FALSE);
     }
 
+    @RequestMapping(method = RequestMethod.GET)
+    public List<UserView> getAllUsers() {
+        return userServiceApi.findAllUsers();
+    }
+
 
     @RequestMapping(value = "{userUuid}/follow/{uuid}", method = RequestMethod.PATCH)
     public UserView followUserByUuid(@PathVariable String userUuid, @PathVariable String uuid) {

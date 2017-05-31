@@ -18,4 +18,5 @@ public interface UserRepository extends JpaRepository<UserEntity, UserView> {
 
     UserEntity findOneByUuid(String uuid);
 
+
 }

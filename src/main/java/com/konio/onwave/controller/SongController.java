@@ -34,5 +34,10 @@ public class SongController {
     public List<SongView> getSongListByUserId(@PathVariable String uuid) {
         return songServiceApi.getSongListByUserId(uuid);
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteSong(@PathVariable Long id) {
+        songServiceApi.deleteSong(id);
+    }
     
 }
