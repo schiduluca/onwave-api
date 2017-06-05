@@ -1,7 +1,7 @@
 package com.konio.onwave.commons.validator.impl;
 
 import com.konio.onwave.commons.ErrorMessage;
-import com.konio.onwave.commons.validator.AbstractContraintValidator;
+import com.konio.onwave.commons.validator.AbstractConstraintValidator;
 import com.konio.onwave.commons.validator.UniqueUUID;
 import com.konio.onwave.domain.views.UserView;
 import com.konio.onwave.repository.UserRepository;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by lschidu on 2/12/17.
  */
-public class UniqueUUIDValidator extends AbstractContraintValidator<UniqueUUID, UserView> {
+public class UniqueUUIDValidator extends AbstractConstraintValidator<UniqueUUID, UserView> {
 
     @Autowired
     private UserRepository userRepository;

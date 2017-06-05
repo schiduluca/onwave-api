@@ -9,7 +9,7 @@ import java.lang.annotation.Annotation;
 /**
  * Created by lschidu on 2/13/17.
  */
-public abstract class AbstractContraintValidator<A extends Annotation, T>
+public abstract class AbstractConstraintValidator<A extends Annotation, T>
         implements ConstraintValidator<A, T> {
 
     @Override

@@ -1,10 +1,8 @@
 package com.konio.onwave.commons.validator.impl;
 
 import com.konio.onwave.commons.ErrorMessage;
-import com.konio.onwave.commons.validator.AbstractContraintValidator;
-import com.konio.onwave.commons.validator.UniqueEmail;
+import com.konio.onwave.commons.validator.AbstractConstraintValidator;
 import com.konio.onwave.commons.validator.UserExists;
-import com.konio.onwave.domain.views.UserView;
 import com.konio.onwave.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by lschidu on 2/12/17.
  */
-public class UserExistsValidator extends AbstractContraintValidator<UserExists, String> {
+public class UserExistsValidator extends AbstractConstraintValidator<UserExists, String> {
 
     @Autowired
     private UserRepository userRepository;

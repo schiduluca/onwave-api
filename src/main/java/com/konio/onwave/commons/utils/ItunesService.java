@@ -1,10 +1,8 @@
 package com.konio.onwave.commons.utils;
 
-import com.konio.onwave.domain.dto.Artist;
 import com.konio.onwave.domain.dto.SampleArtistBody;
 import retrofit.Call;
 import retrofit.http.GET;
-import retrofit.http.Headers;
 import retrofit.http.Query;
 
 /**

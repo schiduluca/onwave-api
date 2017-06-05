@@ -6,16 +6,16 @@ import retrofit.Retrofit;
 /**
  * Created by lschidu on 2/19/17.
  */
-public class RetrofitHelper {
+public class ItunesServiceImpl {
 
-    private static RetrofitHelper INSTANCE = new RetrofitHelper();
+    private static ItunesServiceImpl INSTANCE = new ItunesServiceImpl();
 
     private static final String apiUrl = "https://itunes.apple.com/";
 
     private ItunesService apiService;
 
 
-    private RetrofitHelper() {
+    private ItunesServiceImpl() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(apiUrl)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -23,7 +23,7 @@ public class RetrofitHelper {
         apiService = retrofit.create(ItunesService.class);
     }
 
-    public static RetrofitHelper getINSTANCE() {
+    public static ItunesServiceImpl getINSTANCE() {
         return INSTANCE;
     }
 

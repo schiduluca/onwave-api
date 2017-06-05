@@ -1,6 +1,6 @@
 package com.konio.onwave.service.impl;
 
-import com.konio.onwave.commons.utils.RetrofitHelper;
+import com.konio.onwave.commons.utils.ItunesServiceImpl;
 import com.konio.onwave.domain.converters.SongConverter;
 import com.konio.onwave.domain.dto.SampleArtistBody;
 import com.konio.onwave.domain.entities.SongEntity;
@@ -54,7 +54,7 @@ public class SongServiceImpl implements SongServiceApi {
         songEntity.setUserId(userEntity.getId());
         songEntity.setCreationDate(Date.from(Instant.now()));
         songEntity.setUserEntity(userEntity);
-        Call<SampleArtistBody> artist = RetrofitHelper.getINSTANCE().getApiService().postUser(songEntity.getArtist());
+        Call<SampleArtistBody> artist = ItunesServiceImpl.getINSTANCE().getApiService().postUser(songEntity.getArtist());
 
         artist.enqueue(new Callback<SampleArtistBody>() {
             @Override

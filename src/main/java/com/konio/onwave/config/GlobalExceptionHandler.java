@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public class GlobalExceptionHandler {
 
 
-    @ExceptionHandler(value = ConstraintViolationException.class)
+    @ExceptionHandler(value = Exception.class)
     @ResponseStatus(HttpStatus.PRECONDITION_FAILED)
     public ErrorView handleException(ConstraintViolationException e) {
         List<String> collect = e.getConstraintViolations().stream().
@@ -27,17 +27,5 @@ public class GlobalExceptionHandler {
 
         return new ErrorView(collect);
     }
-
-    @ExceptionHandler(value = EntityNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorView handleException(EntityNotFoundException e) {
-        return new ErrorView(Arrays.asList(e.getLocalizedMessage()));
-    }
-
-
-
-
-
-
 
 }
