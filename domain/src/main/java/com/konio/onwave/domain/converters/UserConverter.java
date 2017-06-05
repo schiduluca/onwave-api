@@ -23,10 +23,10 @@ public class UserConverter extends Converter<UserEntity, UserView> {
     @Override
     protected UserEntity doBackward(UserView userView) {
         UserEntity userEntity = new UserEntity();
-        userEntity.setFirstName(userView.getFirstName());
+        userEntity.setFirstName(userView.getFullName().split(" ")[0]);
         userEntity.setEmail(userView.getEmail());
         userEntity.setUuid(userView.getUuid());
-        userEntity.setLastName(userView.getLastName());
+        userEntity.setLastName(userView.getFullName().split(" ")[1]);
         userEntity.setUuid(userView.getUuid());
         userEntity.setPhotoUrl(userView.getPhotoUrl());
         return userEntity;
