@@ -1,17 +1,28 @@
 package com.konio.onwave.domain.dto;
 
+import java.util.LinkedList;
+
 /**
  * Created by lschidu on 5/12/17.
  */
 public class SampleArtistBody {
 
-    private Artist artists;
+    private Integer resultCount;
+    private LinkedList<Artist> results;
 
-    public Artist getArtists() {
-        return artists;
+    public Integer getResultCount() {
+        return resultCount;
     }
 
-    public void setArtists(Artist artists) {
-        this.artists = artists;
+    public void setResultCount(Integer resultCount) {
+        this.resultCount = resultCount;
+    }
+
+    public LinkedList<Artist> getResults() {
+        return results;
+    }
+
+    public void setResults(LinkedList<Artist> results) {
+        this.results = results;
     }
 }

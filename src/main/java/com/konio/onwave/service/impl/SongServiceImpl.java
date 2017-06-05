@@ -9,6 +9,8 @@ import com.konio.onwave.domain.views.SongView;
 import com.konio.onwave.repository.SongRepository;
 import com.konio.onwave.repository.UserRepository;
 import com.konio.onwave.service.SongServiceApi;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import retrofit.Call;
@@ -27,6 +29,7 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 public class SongServiceImpl implements SongServiceApi {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final SongRepository songRepository;
 
@@ -51,13 +54,14 @@ public class SongServiceImpl implements SongServiceApi {
         songEntity.setUserId(userEntity.getId());
         songEntity.setCreationDate(Date.from(Instant.now()));
         songEntity.setUserEntity(userEntity);
-        Call<SampleArtistBody> artist = RetrofitHelper.getINSTANCE().getApiService().postUser(songEntity.getArtist(), "artist");
+        Call<SampleArtistBody> artist = RetrofitHelper.getINSTANCE().getApiService().postUser(songEntity.getArtist());
 
         artist.enqueue(new Callback<SampleArtistBody>() {
             @Override
             public void onResponse(Response<SampleArtistBody> response, Retrofit retrofit) {
-                if(response != null) {
-                    songEntity.setPhotoUrl(response.body().getArtists().getItems().get(0).getImages().get(0).getUrl());
+                if(response.body() != null) {
+                    songEntity.setPhotoUrl(response.body().getResults().get(0).getArtworkUrl30()
+                            .replace("30x30", "500x500"));
                 }
                 songRepository.save(songEntity);
             }

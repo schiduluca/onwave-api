@@ -10,8 +10,8 @@ import retrofit.http.Query;
 /**
  * Created by lschidu on 2/19/17.
  */
-public interface SpofityService {
+public interface ItunesService {
 
-    @GET("v1/search")
-    Call<SampleArtistBody> postUser(@Query(value = "q") String artist, @Query(value = "type") String type);
+    @GET("search")
+    Call<SampleArtistBody> postUser(@Query(value = "term") String artist);
 }

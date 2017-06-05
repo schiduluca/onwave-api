@@ -10,9 +10,9 @@ public class RetrofitHelper {
 
     private static RetrofitHelper INSTANCE = new RetrofitHelper();
 
-    private static final String apiUrl = "https://api.spotify.com/";
+    private static final String apiUrl = "https://itunes.apple.com/";
 
-    private SpofityService apiService;
+    private ItunesService apiService;
 
 
     private RetrofitHelper() {
@@ -20,14 +20,14 @@ public class RetrofitHelper {
                 .baseUrl(apiUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        apiService = retrofit.create(SpofityService.class);
+        apiService = retrofit.create(ItunesService.class);
     }
 
     public static RetrofitHelper getINSTANCE() {
         return INSTANCE;
     }
 
-    public SpofityService getApiService() {
+    public ItunesService getApiService() {
         return this.apiService;
     }
 }

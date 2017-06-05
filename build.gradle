@@ -41,27 +41,17 @@ dependencies {
 	compile('org.liquibase:liquibase-core')
 	compile('com.google.guava:guava:16.0')
 	compile('org.mockito:mockito-all:2.0.2-beta')
-	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-web') {
+		exclude group : 'spring-boot-starter-logging', module : 'spring-boot-starter-logging'
+	}
 	compile('org.springframework.boot:spring-boot-starter-web-services')
 	compile('com.squareup.retrofit:retrofit:2.0.0-beta2')
 	compile('com.squareup.retrofit:converter-gson:2.0.0-beta2')
 	runtime('org.postgresql:postgresql')
+	compile('org.apache.logging.log4j:log4j-api:2.8.2')
+	compile('org.apache.logging.log4j:log4j-core:2.8.2')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-}
 
-def changeLog = "$projectDir/src/main/resources/db/changelog/db.changelog-master.yaml"
-task('dev') << {
-	println "executing dev"
-	liquibase {
-		activities {
-			main {
-				changeLogFile changeLog
-				url 'jdbc:postgresql://localhost/postgres'
-				username 'postgres'
-				password '123123'
-			}
-		}
-	}
 }
 
 

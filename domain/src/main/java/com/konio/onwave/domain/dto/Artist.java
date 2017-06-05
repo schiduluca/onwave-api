@@ -7,13 +7,13 @@ import java.util.List;
  */
 public class Artist {
 
-    private List<Image> items;
+    private String artworkUrl30;
 
-    public List<Image> getItems() {
-        return items;
+    public String getArtworkUrl30() {
+        return artworkUrl30;
     }
 
-    public void setItems(List<Image> items) {
-        this.items = items;
+    public void setArtworkUrl30(String artworkUrl30) {
+        this.artworkUrl30 = artworkUrl30;
     }
 }

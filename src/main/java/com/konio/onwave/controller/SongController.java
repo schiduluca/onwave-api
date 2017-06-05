@@ -31,8 +31,8 @@ public class SongController {
     }
 
     @RequestMapping(value = "/list/{userUuid}", method = RequestMethod.GET)
-    public List<SongView> getSongListByUserId(@PathVariable String uuid) {
-        return songServiceApi.getSongListByUserId(uuid);
+    public List<SongView> getSongListByUserId(@PathVariable String userUuid) {
+        return songServiceApi.getSongListByUserId(userUuid);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
