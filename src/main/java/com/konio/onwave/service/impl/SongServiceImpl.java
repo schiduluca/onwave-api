@@ -56,7 +56,9 @@ public class SongServiceImpl implements SongServiceApi {
         artist.enqueue(new Callback<SampleArtistBody>() {
             @Override
             public void onResponse(Response<SampleArtistBody> response, Retrofit retrofit) {
-                songEntity.setPhotoUrl(response.body().getArtists().getItems().get(0).getImages().get(0).getUrl());
+                if(response != null) {
+                    songEntity.setPhotoUrl(response.body().getArtists().getItems().get(0).getImages().get(0).getUrl());
+                }
                 songRepository.save(songEntity);
             }
 
