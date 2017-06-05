@@ -1,6 +1,7 @@
 package com.konio.onwave.domain.views;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -21,6 +22,16 @@ public class UserView implements Serializable {
     private String fullName;
 
     private String uuid;
+
+    private List<SongView> songs;
+
+    public List<SongView> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(List<SongView> songs) {
+        this.songs = songs;
+    }
 
     public String getUuid() {
         return uuid;
