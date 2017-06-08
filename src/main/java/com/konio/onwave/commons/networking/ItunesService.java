@@ -1,4 +1,4 @@
-package com.konio.onwave.commons.utils;
+package com.konio.onwave.commons.networking;
 
 import com.konio.onwave.domain.dto.SampleArtistBody;
 import retrofit.Call;

@@ -1,6 +1,6 @@
 package com.konio.onwave.service.impl;
 
-import com.konio.onwave.commons.utils.ItunesServiceImpl;
+import com.konio.onwave.commons.networking.ItunesServiceImpl;
 import com.konio.onwave.domain.converters.SongConverter;
 import com.konio.onwave.domain.dto.SampleArtistBody;
 import com.konio.onwave.domain.entities.SongEntity;

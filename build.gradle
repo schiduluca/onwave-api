@@ -50,6 +50,8 @@ dependencies {
 	runtime('org.postgresql:postgresql')
 	compile('org.apache.logging.log4j:log4j-api:2.8.2')
 	compile('org.apache.logging.log4j:log4j-core:2.8.2')
+	compile('io.springfox:springfox-swagger2:2.6.1')
+	compile('io.springfox:springfox-swagger-ui:2.4.0')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 
 }
