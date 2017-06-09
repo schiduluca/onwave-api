@@ -1,5 +1,6 @@
 package com.konio.onwave.service.impl;
 
+import com.google.common.collect.Lists;
 import com.konio.onwave.domain.converters.SongConverter;
 import com.konio.onwave.domain.converters.UserConverter;
 import com.konio.onwave.domain.entities.UserEntity;
@@ -81,7 +82,7 @@ public class UserServiceImpl implements UserServiceApi {
     public UserView findUserByUuid(String uuid) {
         UserEntity userEntity = userRepository.findOneByUuid(uuid);
         UserView userView = userConverter.convert(userEntity);
-        userView.setSongs(userEntity.getSongs().stream().map(songConverter::convert).collect(Collectors.toList()));
+        userView.setSongs(Lists.reverse(userEntity.getSongs().stream().map(songConverter::convert).collect(Collectors.toList())));
         return userView;
     }
 
