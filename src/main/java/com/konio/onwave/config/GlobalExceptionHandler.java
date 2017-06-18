@@ -24,8 +24,6 @@ public class GlobalExceptionHandler {
     public ErrorView handleException(ConstraintViolationException e) {
         List<String> collect = e.getConstraintViolations().stream().
                 map(ConstraintViolation::getMessageTemplate).collect(Collectors.toList());
-
         return new ErrorView(collect);
     }
-
 }

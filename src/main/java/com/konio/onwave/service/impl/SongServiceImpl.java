@@ -68,6 +68,7 @@ public class SongServiceImpl implements SongServiceApi {
 
             @Override
             public void onFailure(Throwable throwable) {
+                songRepository.save(songEntity);
             }
         });
     }
