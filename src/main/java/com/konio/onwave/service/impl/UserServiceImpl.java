@@ -3,6 +3,7 @@ package com.konio.onwave.service.impl;
 import com.google.common.collect.Lists;
 import com.konio.onwave.domain.converters.SongConverter;
 import com.konio.onwave.domain.converters.UserConverter;
+import com.konio.onwave.domain.entities.SongEntity;
 import com.konio.onwave.domain.entities.UserEntity;
 import com.konio.onwave.domain.views.UserView;
 import com.konio.onwave.repository.UserRepository;
@@ -10,7 +11,9 @@ import com.konio.onwave.service.UserServiceApi;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -82,7 +85,9 @@ public class UserServiceImpl implements UserServiceApi {
     public UserView findUserByUuid(String uuid) {
         UserEntity userEntity = userRepository.findOneByUuid(uuid);
         UserView userView = userConverter.convert(userEntity);
-        userView.setSongs(Lists.reverse(userEntity.getSongs().stream().map(songConverter::convert).collect(Collectors.toList())));
+
+        userView.setSongs(userEntity.getSongs().stream().sorted(Comparator.comparing(SongEntity::getCreationDate).reversed()).
+                map(songConverter::convert).collect(Collectors.toList()));
         return userView;
     }
 
